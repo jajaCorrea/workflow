@@ -1,0 +1,52 @@
+#logo {
+  padding-top: 5%;
+  height: 175px !important;
+  width: 175px !important;
+  display:block;
+  margin:auto;
+}
+
+.workflow {
+  text-align: center;
+  color: white;
+  font-family: "gabriola";
+  font-size: 40px;
+  margin: auto;
+}
+
+.text1, .text2, .text3, .btn{
+  font-family: "aldhabi";
+  color: white;
+  margin:auto;
+}
+
+.text1{
+  text-align: left;
+  padding-left: 10%;
+  font-size: 35px;
+  margin:auto;
+}
+
+.text2, .text3{
+  text-align: center;
+  font-size: 30px;
+}
+
+.text3{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.btn{
+  font-size: 35px;
+  display:block;
+  margin:auto;
+}
+
+.emailInput, .passInput{
+  display:block;
+  margin:auto;
+  width: 85%;
+  border-radius: 15px;
+  margin-bottom: 10px; 
+}

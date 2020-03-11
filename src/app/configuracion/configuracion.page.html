@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <ion-item>
+      <ion-label>Capturar un nuevo porcentaje</ion-label>
+      <ion-input placeholder="%" [(ngModel)]="propina"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="Guardar()">Guardar</ion-button>
+  </div>
+</ion-content>
