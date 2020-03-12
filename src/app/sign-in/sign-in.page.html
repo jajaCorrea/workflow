@@ -1,0 +1,39 @@
+<ion-content color="primary" [fullscreen]="true" class="hola">
+  <div>
+    <p class="workflow">Workflow Registro</p>
+
+    <hr>
+    <p class="text1">Nombre de usuario:</p>
+    <ion-item color="primary">
+      <ion-input color="primary" shape="round" class="loginInput" type="text"></ion-input>
+    </ion-item>
+
+    <hr>
+    <p class="text1">Correo:</p>
+    <ion-item color="primary">
+      <ion-input color="primary" shape="round" class="loginInput" type="email"></ion-input>
+    </ion-item>
+
+    <hr>
+    <p class="text1">Contraseña:</p>
+    <ion-item color="primary">
+      <ion-input color="primary" shape="round" class="loginInput" type="password"></ion-input>
+    </ion-item>
+
+    <hr>
+    <p class="text1">Repetir contraseña:</p>
+    <ion-item color="primary">
+      <ion-input color="primary" class="loginInput" input_type="round" type="password"></ion-input>
+    </ion-item>
+
+    <hr>
+    <hr>
+    <div class="btnEntrar">
+      <ion-button shape="round" fill="outline" color="light">Registrarse</ion-button>
+    </div>
+    <hr>
+
+    <p class="text2">¿Ya te habías registrado?</p>
+    <p class="text3" (click)="cambiarHome()">Volver a la página principal</p>
+  </div>
+</ion-content>

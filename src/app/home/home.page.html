@@ -3,11 +3,24 @@
     <ion-img id="logo" src="./assets/icon/logo.png"></ion-img>
     <p class="workflow">Workflow</p>
     <p class="text1">Correo:</p>
-    <ion-input class="emailInput" type="email"></ion-input>
+    <ion-item color="primary">
+      <ion-input color="primary" shape="round" class="loginInput" type="email"></ion-input>
+    </ion-item>
+
+    <hr>
     <p class="text1">Contraseña:</p>
-    <ion-input class="passInput" type="password" min="8"></ion-input>
-    <ion-button color="light" class="btn">Entrar</ion-button>
+    <ion-item color="primary">
+      <ion-input color="primary" class="loginInput" input_type="round" type="password"></ion-input>
+    </ion-item>
+
+    <hr>
+    <hr>
+    <div class="btnEntrar">
+      <ion-button shape="round" fill="outline" color="light">Entrar</ion-button>
+    </div>
+    <hr>
+
     <p class="text2">¿Aún no estás registrado?</p>
-    <p class="text3">¡Regístrate aquí!</p>
+    <p class="text3" (click)="cambiarRegistro()">¡Regístrate aquí!</p>
   </div>
 </ion-content>
