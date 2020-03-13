@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { IonReorderGroup } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardPage implements OnInit {
 
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
+  cargarTarea() {
+    this.navCtrl.navigateForward('/task');
+  }
   ngOnInit() {
   }
 

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-img id="logo" src="./assets/icon/logo.png"></ion-img>
+        </ion-col>
+        <ion-col style="padding-top: 15px;" size="8">
+          <ion-title>Estado del proyecto</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen color="tertiary">
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-select placeholder="Selecciona uno">
+      <ion-select-option value="pend">Pendiente</ion-select-option>
+      <ion-select-option value="pause">En pausa</ion-select-option>
+      <ion-select-option value="fin">Finalizado</ion-select-option>
+      <ion-select-option value="cancel">Cancelado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Progreso</ion-label>
+    <ion-range min="-200" max="200" color="secondary">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">100</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-button fill="outline" color="light" expand="block" (click)="cargarTarea()">
+    Aceptar
+  </ion-button>
+
+  <ion-button fill="outline" color="light" expand="block" (click)="cargarTarea()">
+    Cancelar
+  </ion-button>
+</ion-content>
