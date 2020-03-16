@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-task',
@@ -7,8 +8,9 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./task.page.scss'],
 })
 export class TaskPage implements OnInit {
+  tarea = null;
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }

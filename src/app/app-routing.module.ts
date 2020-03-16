@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'status',
     loadChildren: () => import('./status/status.module').then( m => m.StatusPageModule)
   },
+  {
+    path: 'add-task',
+    loadChildren: () => import('./add-task/add-task.module').then( m => m.AddTaskPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="1">
+          <ion-img id="logo" src="./assets/icon/logo.png"></ion-img>
+        </ion-col>
+        <ion-col style="padding-top: 15px;" size="8">
+          <ion-title>Agregar tarea</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen color="tertiary">
+  <h1 style="text-align:center">Nueva tarea</h1>
+
+  <ion-item>
+    <ion-label position="floating">Tarea:</ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Proyecto:</ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Prioridad:</ion-label>
+    <ion-select placeholder="Selecciona uno">
+      <ion-select-option value="high">Alta</ion-select-option>
+      <ion-select-option value="med">Media</ion-select-option>
+      <ion-select-option value="low">Baja</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Estado:</ion-label>
+    <ion-select placeholder="Selecciona uno">
+      <ion-select-option value="pend">Pendiente</ion-select-option>
+      <ion-select-option value="pause">En pausa</ion-select-option>
+      <ion-select-option value="fin">Finalizado</ion-select-option>
+      <ion-select-option value="cancel">Cancelado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Responsable:</ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descripcion:</ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Anotaciones:</ion-label>
+    <ion-input required type="text"></ion-input>
+  </ion-item>
+
+  <hr>
+  <ion-button type="submit" fill="outline" color="light" expand="block" (click)="cambiarDashboard()">
+    Agregar tarea
+  </ion-button>
+  <ion-button fill="outline" color="light" expand="block" (click)="cambiarDashboard()">
+    Cancelar
+  </ion-button>
+</ion-content>
