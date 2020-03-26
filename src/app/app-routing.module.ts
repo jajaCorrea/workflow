@@ -17,15 +17,15 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
-    path: 'task',
+    path: 'task/:id',
     loadChildren: () => import('./task/task.module').then( m => m.TaskPageModule)
   },
   {
-    path: 'edt-text',
+    path: 'edt-text/:id',
     loadChildren: () => import('./edt-text/edt-text.module').then( m => m.EdtTextPageModule)
   },
   {
-    path: 'status',
+    path: 'status/:id',
     loadChildren: () => import('./status/status.module').then( m => m.StatusPageModule)
   },
   {

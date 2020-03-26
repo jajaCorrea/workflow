@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { IonReorderGroup } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,26 +8,74 @@ import { IonReorderGroup } from '@ionic/angular';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-  // Posicion de tareas[]:
-  // pos 0: tarea, pos 1: proyecto, pos 2: prioridad (success: baja, warning: media, danger: alta)
-  // pos 3: progreso (0 a 1), pos 4: estado (pendiente, en pausa, cancelada, finalizada)
-  // pos 5: responsable, pos 6: descripcion_tarea, pos 7: anotaciones
-  tareas = [
-    ['Agregar variables', 'Workflow', 'success', 0.5, 'Pendiente', 'Juan Mediavilla', 'Descripcion Workflow', 'Anotaciones workflow'],
-    ['Crear repositorio', 'VentaMaster', 'danger', 0.1, 'Cancelado', 'Jordi Acero', 'Descripcion VentaMaster', 'Anotaciones ventaMaster'],
-    ['Agregar borrador', 'Colorrillo', 'warning', 0.2, 'Pendiente', 'Jose Gonzalez', 'Descripcion Colorillo', 'Anotaciones Colorrillo'],
-    ['Desarrollar IA', 'Akinator', 'warning', 0.75, 'Pendiente', 'Sergio Bermudez', 'Descripcion Akinator', 'Anotaciones Akinator'],
-    ['Lectura por camara', 'OpenCV', 'success', 0.9, 'En pausa', 'Juan Arenas', 'Descripcion OpenCV', 'Anotaciones OpenCV']
+  tareas: any[] = [
+    {
+      id: 0,
+      nombre: 'Agregar variables',
+      proyecto: 'Workflow',
+      prioridad: 'success',
+      progreso: 0.5,
+      estado: 'Pendiente',
+      responsable: 'Juan Mediavilla',
+      descripcion: 'Descripcion Workflow',
+      anotaciones:  'Anotaciones workflow'
+    },
+    {
+      id: 1,
+      nombre: 'Crear repositorio',
+      proyecto: 'VentaMaster',
+      prioridad: 'danger',
+      progreso: 0.1,
+      estado: 'Cancelado',
+      responsable: 'Jordi Acero',
+      descripcion: 'Descripcion VentaMaster',
+      anotaciones:  'Anotaciones ventaMaster'
+    },
+    {
+      id: 2,
+      nombre: 'Agregar borrador',
+      proyecto: 'Colorrillo',
+      prioridad: 'warning',
+      progreso: 0.2,
+      estado: 'Pendiente',
+      responsable: 'Jose Gonzalez',
+      descripcion: 'Descripcion Colorillo',
+      anotaciones:  'Anotaciones Colorrillo'
+    },
+    {
+      id: 3,
+      nombre: 'Desarrollar IA',
+      proyecto: 'Akinator',
+      prioridad: 'warning',
+      progreso: 0.75,
+      estado: 'Pendiente',
+      responsable: 'Sergio Bermudez',
+      descripcion: 'Descripcion Akinator',
+      anotaciones:  'Anotaciones Akinator'
+    },
+    {
+      id: 4,
+      nombre: 'Lectura por camara',
+      proyecto: 'OpenCV',
+      prioridad: 'success',
+      progreso: 0.9,
+      estado: 'En pausa',
+      responsable: 'Juan Arenas',
+      descripcion: 'Descripcion OpenCV',
+      anotaciones:  'Anotaciones OpenCV'
+    }
   ];
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private router: Router) { }
 
-  cargarTarea() {
-    this.navCtrl.navigateForward(['/task', this.tareas]);
+  cargarTask(item) {
+    this.navCtrl.navigateForward(['/task', item.id]);
   }
-  cargarNuevaTarea() {
+
+  cargarAddTask() {
     this.navCtrl.navigateForward('/add-task');
   }
+
   ngOnInit() {
   }
 

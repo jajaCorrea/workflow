@@ -12,8 +12,4 @@ export class HomePage {
 
   }
 
-  cambiarRegistro() {
-    this.navCtrl.navigateForward('/sign-in');
-  }
-
 }

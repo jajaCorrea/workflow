@@ -14,36 +14,33 @@
 </ion-header>
 
 <ion-content fullscreen color="tertiary">
-  <p>{{tarea}}</p>
+  <h1 style="text-align:center">{{tareas[id].nombre}}</h1>
+  <p style="text-align:center">{{tareas[id].proyecto}}</p>
   <hr>
 
-  <h1 style="text-align:center">Nombre Tarea</h1>
-  <p style="text-align:center">Preyecto: NombreProyecto</p>
-  <hr>
-
-  <ion-progress-bar color="warning" value="0.5"></ion-progress-bar>
-  <p style="text-align:center">Progreso: 50%</p>
-  <hr>
+  <ion-progress-bar color="{{tareas[id].prioridad}}" value="{{tareas[id].progreso}}"></ion-progress-bar>
+  <p style="text-align:center">Progreso: {{(tareas[id].progreso*100)}}%</p>
+  <p style="text-align:center">Prioridad:
+    <span *ngIf="tareas[id].prioridad=='danger'">Alta</span>
+    <span *ngIf="tareas[id].prioridad=='warning'">Media</span>
+    <span *ngIf="tareas[id].prioridad=='success'">Baja</span>
+  </p>
+  <p style="text-align:center">Estado: {{tareas[id].estado}}</p>
+  <p style="text-align:center">Responsable: {{tareas[id].responsable}}</p>
 
   <ion-button fill="outline" color="light" expand="block" (click)="cambiarEstadoProyecto()">
     Actualizar estado del proyecto
   </ion-button>
   <hr>
 
-  <p style="padding-left:5%;">Detalles:</p>
-  <ion-card color="light" (click)="cambiarEdtText()">
-    <ion-card-content style="text-align:justify">
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
+  <p style="padding-left:5%;">Descripción:</p>
+  <ion-card color="light">
+    <ion-card-content style="text-align:justify">{{tareas[id].descripcion}}</ion-card-content>
   </ion-card>
 
   <p style="padding-left:5%;">Anotaciones:</p>
-  <ion-card color="light" (click)="cambiarEdtText()">
-    <ion-card-content style="text-align:justify">
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
+  <ion-card color="light">
+    <ion-card-content style="text-align:justify">{{tareas[id].anotaciones}}</ion-card-content>
   </ion-card>
 
   <ion-button fill="outline" color="light" expand="block" (click)="cambiarDashboard()">

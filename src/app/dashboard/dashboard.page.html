@@ -14,22 +14,23 @@
 </ion-header>
 
 <ion-content fullscreen color="tertiary">
-  <ion-fab (click)="cargarNuevaTarea()" vertical="bottom" horizontal="end" slot="fixed">
+  <h1 style="text-align:center">Tareas</h1>
+  
+  <div *ngFor="let item of tareas;let i=index">
+    <ion-card (click)="cargarTask(item)">
+      <ion-card-header color="{{item.prioridad}}">
+        <ion-card-subtitle>{{item.proyecto}}</ion-card-subtitle>
+        <ion-card-title>{{item.nombre}}</ion-card-title>
+      </ion-card-header>
+      <p style="text-align:center">Progreso: {{item.progreso*100}}%</p>
+      <ion-progress-bar color="{{item.prioridad}}" value="{{item.progreso}}"></ion-progress-bar>
+      <hr>
+    </ion-card>
+  </div>
+
+  <ion-fab (click)="cargarAddTask()" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <h1 style="text-align:center">Tareas</h1>
-
-  <div *ngFor="let item of tareas">
-    <ion-card (click)="cargarTarea()">
-      <ion-card-header color="{{item[2]}}">
-        <ion-card-subtitle>{{item[1]}}</ion-card-subtitle>
-        <ion-card-title>{{item[0]}}</ion-card-title>
-      </ion-card-header>
-      <p style="text-align:center">Progreso: {{item[3]*100}}%</p>
-      <ion-progress-bar color="{{item[2]}}" value="{{item[3]}}"></ion-progress-bar>
-      <hr>
-    </ion-card>
-  </div>
 </ion-content>

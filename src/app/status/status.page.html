@@ -15,8 +15,25 @@
 
 <ion-content fullscreen color="tertiary">
   <ion-item>
-    <ion-label>Estado:</ion-label>
-    <ion-select placeholder="Selecciona uno">
+    <ion-label>Progreso</ion-label>
+    <ion-range min="0" max="100" value="{{tareas[id].progreso*100}}" color="secondary">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">100</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Prioridad</ion-label>
+    <ion-select placeholder="Selecciona uno" value="{{tareas[id].prioridad}}">
+      <ion-select-option value="danger">Alta</ion-select-option>
+      <ion-select-option value="warning">Media</ion-select-option>
+      <ion-select-option value="success">Baja</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Estado</ion-label>
+    <ion-select placeholder="Selecciona uno" value="{{this.statusValue}}">
       <ion-select-option value="pend">Pendiente</ion-select-option>
       <ion-select-option value="pause">En pausa</ion-select-option>
       <ion-select-option value="fin">Finalizado</ion-select-option>
@@ -25,11 +42,18 @@
   </ion-item>
 
   <ion-item>
-    <ion-label>Progreso</ion-label>
-    <ion-range min="-200" max="200" color="secondary">
-      <ion-label slot="start">0</ion-label>
-      <ion-label slot="end">100</ion-label>
-    </ion-range>
+    <ion-label>Responsable</ion-label>
+    <ion-input required="true" value="{{tareas[id].responsable}}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Descripcion</ion-label>
+    <ion-input clearInput="true" required="true" value="{{tareas[id].descripcion}}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Anotaciones</ion-label>
+    <ion-input clearInput="true" value="{{tareas[id].anotaciones}}"></ion-input>
   </ion-item>
 
   <ion-button fill="outline" color="light" expand="block" (click)="cargarTarea()">

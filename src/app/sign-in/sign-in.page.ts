@@ -10,10 +10,6 @@ export class SignInPage implements OnInit {
 
   constructor(public navCtrl: NavController) { }
 
-  cambiarHome() {
-    this.navCtrl.navigateForward('/home');
-  }
-
   ngOnInit() {
   }
 
