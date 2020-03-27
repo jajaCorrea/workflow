@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-status',
@@ -10,87 +13,48 @@ import { ActivatedRoute } from '@angular/router';
 export class StatusPage implements OnInit {
   id = null;
   statusValue = '';
-  tareas: any[] = [
-    {
-      id: 0,
-      nombre: 'Agregar variables',
-      proyecto: 'Workflow',
-      prioridad: 'success',
-      progreso: 0.5,
-      estado: 'Pendiente',
-      responsable: 'Juan Mediavilla',
-      descripcion: 'Descripcion Workflow',
-      anotaciones:  'Anotaciones workflow'
-    },
-    {
-      id: 1,
-      nombre: 'Crear repositorio',
-      proyecto: 'VentaMaster',
-      prioridad: 'danger',
-      progreso: 0.1,
-      estado: 'Cancelado',
-      responsable: 'Jordi Acero',
-      descripcion: 'Descripcion VentaMaster',
-      anotaciones:  'Anotaciones ventaMaster'
-    },
-    {
-      id: 2,
-      nombre: 'Agregar borrador',
-      proyecto: 'Colorrillo',
-      prioridad: 'warning',
-      progreso: 0.2,
-      estado: 'Pendiente',
-      responsable: 'Jose Gonzalez',
-      descripcion: 'Descripcion Colorillo',
-      anotaciones:  'Anotaciones Colorrillo'
-    },
-    {
-      id: 3,
-      nombre: 'Desarrollar IA',
-      proyecto: 'Akinator',
-      prioridad: 'warning',
-      progreso: 0.75,
-      estado: 'Pendiente',
-      responsable: 'Sergio Bermudez',
-      descripcion: 'Descripcion Akinator',
-      anotaciones:  'Anotaciones Akinator'
-    },
-    {
-      id: 4,
-      nombre: 'Lectura por camara',
-      proyecto: 'OpenCV',
-      prioridad: 'success',
-      progreso: 0.9,
-      estado: 'En pausa',
-      responsable: 'Juan Arenas',
-      descripcion: 'Descripcion OpenCV',
-      anotaciones:  'Anotaciones OpenCV'
-    }
-  ];
+  tareas: any[] = [];
 
-  constructor(public navCtrl: NavController, private activatedRoute: ActivatedRoute) { }
+  constructor(private http: HttpClient,public navCtrl: NavController, private activatedRoute: ActivatedRoute,  private router: Router) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-
-    switch (this.tareas[this.id].estado) {
-      case 'Pendiente':
-        this.statusValue = 'pend';
-        break;
-      case 'En pausa':
-        this.statusValue = 'pause';
-        break;
-      case 'Finalizado':
-        this.statusValue = 'fin';
-        break;
-      case 'Cancelado':
-        this.statusValue = 'cancel';
-        break;
-    }
+    this.getTaskById(this.id);
+   
   }
 
   cargarTarea() {
-    this.navCtrl.navigateForward(['/task', this.id]);
+    //this.navCtrl.navigateForward(['/dashboard', this.id]);
+    this.router.navigate(['/dashboard']);
+  }
+  getTaskById(id: string){
+    return new Promise(res => {
+        this.http.get('http://localhost:3000/task/task/'+this.id )
+        .subscribe((res : any) => {
+           this.tareas=res.task;
+           console.log(this.tareas);
+        });
+    });
   }
 
+  updateTask( prioridad: string,
+    estado: string, progreso: number, responsable:string, descripcion: string, anotaciones: string) {
+   this.http.put('http://localhost:3000/task/task/'+this.id, {
+       prioridad: prioridad,
+       estado: estado,
+       progreso: progreso/100,
+       responsable: responsable,
+       descripcion: descripcion,
+       anotaciones:anotaciones
+   }).subscribe((data : any) => {
+     alert('Tarea modificada con exito!!');
+     this.cargarTarea();
+   });
+ }
+ onFormSubmit(form: NgForm) {
+  this.updateTask(
+    form.value.prioridad, form.value.estado, 
+    form.value.progreso, form.value.responsable, form.value.descripcion,
+    form.value.anotaciones);
+}
 }

@@ -1,3 +1,4 @@
+<form #addTaskForm="ngForm" (submit)="onFormSubmit(addTaskForm)">
 <ion-header>
   <ion-toolbar color="primary">
     <ion-grid>
@@ -13,58 +14,64 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen color="tertiary">
-  <h1 style="text-align:center">Nueva tarea</h1>
+  <ion-content fullscreen color="tertiary">
+    <h1 style="text-align:center">Nueva tarea</h1>
 
-  <ion-item>
-    <ion-label position="floating">Tarea:</ion-label>
-    <ion-input required type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tarea:</ion-label>
+      <ion-input required type="text" name="nombre" ngModel #nombreInput="ngModel"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Proyecto:</ion-label>
-    <ion-input required type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Proyecto:</ion-label>
+      <ion-input required type="text" name="proyecto" ngModel #proyectoInput="ngModel"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Prioridad:</ion-label>
-    <ion-select placeholder="Selecciona uno">
-      <ion-select-option value="high">Alta</ion-select-option>
-      <ion-select-option value="med">Media</ion-select-option>
-      <ion-select-option value="low">Baja</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Progreso:</ion-label>
+      <ion-input required type="number" name="progreso" ngModel #progresoInput="ngModel"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Estado:</ion-label>
-    <ion-select placeholder="Selecciona uno">
-      <ion-select-option value="pend">Pendiente</ion-select-option>
-      <ion-select-option value="pause">En pausa</ion-select-option>
-      <ion-select-option value="fin">Finalizado</ion-select-option>
-      <ion-select-option value="cancel">Cancelado</ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label>Prioridad:</ion-label>
+      <ion-select placeholder="Selecciona uno" name="prioridad" ngModel #prioridadInput="ngModel">
+        <ion-select-option value="high">Alta</ion-select-option>
+        <ion-select-option value="med">Media</ion-select-option>
+        <ion-select-option value="low">Baja</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Responsable:</ion-label>
-    <ion-input required type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Estado:</ion-label>
+      <ion-select placeholder="Selecciona uno" name="estado" ngModel #estadoInput="ngModel">
+        <ion-select-option value="pend">Pendiente</ion-select-option>
+        <ion-select-option value="pause">En pausa</ion-select-option>
+        <ion-select-option value="fin">Finalizado</ion-select-option>
+        <ion-select-option value="cancel">Cancelado</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Descripcion:</ion-label>
-    <ion-input required type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Responsable:</ion-label>
+      <ion-input required type="text" name="responsable" ngModel #responsableInput="ngModel"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Anotaciones:</ion-label>
-    <ion-input required type="text"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripcion:</ion-label>
+      <ion-input required type="text" name="descripcion" ngModel #descripcionInput="ngModel"></ion-input>
+    </ion-item>
 
-  <hr>
-  <ion-button type="submit" fill="outline" color="light" expand="block" (click)="cambiarDashboard()">
-    Agregar tarea
-  </ion-button>
-  <ion-button fill="outline" color="light" expand="block" (click)="cambiarDashboard()">
-    Cancelar
-  </ion-button>
-</ion-content>
+    <ion-item>
+      <ion-label position="floating">Anotaciones:</ion-label>
+      <ion-input required type="text" name="anotaciones" ngModel #anotacionesInput="ngModel"></ion-input>
+    </ion-item>
+
+    <hr>
+    <ion-button type="submit" fill="outline" color="light" expand="block" >
+      Agregar tarea
+    </ion-button>
+    <ion-button fill="outline" color="light" expand="block" (click)="cambiarDashboard()">
+      Cancelar
+    </ion-button>
+  </ion-content>
+</form>

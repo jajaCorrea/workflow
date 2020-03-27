@@ -14,33 +14,33 @@
 </ion-header>
 
 <ion-content fullscreen color="tertiary">
-  <h1 style="text-align:center">{{tareas[id].nombre}}</h1>
-  <p style="text-align:center">{{tareas[id].proyecto}}</p>
+  <h1 style="text-align:center">{{tareas.nombre}}</h1>
+  <p style="text-align:center">{{tareas.proyecto}}</p>
   <hr>
 
-  <ion-progress-bar color="{{tareas[id].prioridad}}" value="{{tareas[id].progreso}}"></ion-progress-bar>
-  <p style="text-align:center">Progreso: {{(tareas[id].progreso*100)}}%</p>
-  <p style="text-align:center">Prioridad:
-    <span *ngIf="tareas[id].prioridad=='danger'">Alta</span>
-    <span *ngIf="tareas[id].prioridad=='warning'">Media</span>
-    <span *ngIf="tareas[id].prioridad=='success'">Baja</span>
+  <ion-progress-bar color="{{tareas.prioridad}}" value="{{tareas.progreso}}"></ion-progress-bar>
+  <p style="text-align:center">Progreso: {{(tareas.progreso*100)}}%</p>
+  <p style="text-align:center">Prioridad: 
+    <span *ngIf="tareas.prioridad=='danger'">Alta</span>
+    <span *ngIf="tareas.prioridad=='warning'">Media</span>
+    <span *ngIf="tareas.prioridad=='success'">Baja</span>
   </p>
-  <p style="text-align:center">Estado: {{tareas[id].estado}}</p>
-  <p style="text-align:center">Responsable: {{tareas[id].responsable}}</p>
+  <p style="text-align:center">Estado: {{tareas.estado}}</p>
+  <p style="text-align:center">Responsable: {{tareas.responsable}}</p>
 
-  <ion-button fill="outline" color="light" expand="block" (click)="cambiarEstadoProyecto()">
+  <ion-button fill="outline" color="light" expand="block" (click)="cambiarEstadoProyecto(tareas._id)">
     Actualizar estado del proyecto
   </ion-button>
   <hr>
 
   <p style="padding-left:5%;">Descripción:</p>
   <ion-card color="light">
-    <ion-card-content style="text-align:justify">{{tareas[id].descripcion}}</ion-card-content>
+    <ion-card-content style="text-align:justify">{{tareas.descripcion}}</ion-card-content>
   </ion-card>
 
   <p style="padding-left:5%;">Anotaciones:</p>
   <ion-card color="light">
-    <ion-card-content style="text-align:justify">{{tareas[id].anotaciones}}</ion-card-content>
+    <ion-card-content style="text-align:justify">{{tareas.anotaciones}}</ion-card-content>
   </ion-card>
 
   <ion-button fill="outline" color="light" expand="block" (click)="cambiarDashboard()">

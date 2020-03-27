@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,29 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(private http: HttpClient, public navCtrl: NavController) {
 
   }
 
+  ngOnInit() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+  }
+
+  login(email: string, password: string) {
+    this.http.post('http://localhost:3000/user/login', {
+      email: email,
+      password: password
+    }).subscribe((data : any) => {
+      alert('Bienvenido!!');
+      console.log(data.token);
+      //router link
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("email", data.email);
+      this.navCtrl.navigateForward('/dashboard');
+    });
+  }
+  onFormSubmit(form: NgForm) {
+    this.login(form.value.email, form.value.password);
+  }
 }

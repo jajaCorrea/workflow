@@ -16,7 +16,7 @@
 <ion-content fullscreen color="tertiary">
   <h1 style="text-align:center">Tareas</h1>
   
-  <div *ngFor="let item of tareas;let i=index">
+  <div *ngFor="let item of tareas;">
     <ion-card (click)="cargarTask(item)">
       <ion-card-header color="{{item.prioridad}}">
         <ion-card-subtitle>{{item.proyecto}}</ion-card-subtitle>

@@ -1,24 +1,26 @@
 <ion-content fullscreen color="primary" class="hola">
   <div>
     <ion-img id="logo" src="./assets/icon/logo.png"></ion-img>
+    <form #loginForm="ngForm" (submit)="onFormSubmit(loginForm)">
     <p class="workflow">Workflow</p>
     <p class="text1">Correo:</p>
     <ion-item color="primary">
-      <ion-input color="primary" shape="round" class="loginInput" type="email"></ion-input>
+      <ion-input color="primary" shape="round" class="loginInput" type="email" name="email" ngModel #emailInput="ngModel"></ion-input>
     </ion-item>
 
     <hr>
     <p class="text1">Contraseña:</p>
     <ion-item color="primary">
-      <ion-input color="primary" class="loginInput" input_type="round" type="password"></ion-input>
+      <ion-input color="primary" class="loginInput" input_type="round" type="password" name="password" ngModel #passwordInput="ngModel"></ion-input>
     </ion-item>
 
     <hr>
     <hr>
     <div class="btnEntrar">
-      <ion-button shape="round" fill="outline" color="light">Entrar</ion-button>
+      <ion-button shape="round" fill="outline" color="light" type="submit">Entrar</ion-button>
     </div>
     <hr>
+  </form>
 
     <p class="text2">¿Aún no estás registrado?</p>
     <p class="text3" [routerLink]="['/sign-in']">¡Regístrate aquí!</p>
