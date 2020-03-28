@@ -29,7 +29,7 @@ export class StatusPage implements OnInit {
   }
   getTaskById(id: string){
     return new Promise(res => {
-        this.http.get('http://localhost:3000/task/task/'+this.id )
+        this.http.get('https://workflow-serve.herokuapp.com/task/task/'+this.id )
         .subscribe((res : any) => {
            this.tareas=res.task;
            console.log(this.tareas);
@@ -39,7 +39,7 @@ export class StatusPage implements OnInit {
 
   updateTask( prioridad: string,
     estado: string, progreso: number, responsable:string, descripcion: string, anotaciones: string) {
-   this.http.put('http://localhost:3000/task/task/'+this.id, {
+   this.http.put('https://workflow-serve.herokuapp.com/task/task/'+this.id, {
        prioridad: prioridad,
        estado: estado,
        progreso: progreso/100,

@@ -22,7 +22,7 @@ export class TaskPage implements OnInit {
 
   getTaskById(id: string){
     return new Promise(res => {
-        this.http.get('http://localhost:3000/task/task/'+this.id )
+        this.http.get('https://workflow-serve.herokuapp.com/task/task/'+this.id )
         .subscribe((res : any) => {
            this.tareas=res.task;
            console.log(this.tareas);

@@ -95,7 +95,7 @@ export class DashboardPage implements OnInit {
 
   getTask(){
       return new Promise(res => {
-          this.http.get('http://localhost:3000/task/task')
+          this.http.get('https://workflow-serve.herokuapp.com/task/task')
           .subscribe((res : any) => {
              //this.tareas=res;
              //console.log(res);

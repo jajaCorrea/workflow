@@ -20,7 +20,7 @@ export class HomePage {
   }
 
   login(email: string, password: string) {
-    this.http.post('http://localhost:3000/user/login', {
+    this.http.post('https://workflow-serve.herokuapp.com/user/login', {
       email: email,
       password: password
     }).subscribe((data : any) => {

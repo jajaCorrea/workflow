@@ -19,7 +19,7 @@ export class SignInPage implements OnInit {
     this.navCtrl.navigateForward('/home');
   }
   signup(email: string, username: string, password: string) {
-    this.http.post('http://localhost:3000/user/signup', {
+    this.http.post('https://workflow-serve.herokuapp.com/user/signup', {
       username: username,
       email: email,
       password: password

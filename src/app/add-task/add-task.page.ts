@@ -16,12 +16,12 @@ export class AddTaskPage implements OnInit {
   }
   addTask(nombre: string, proyecto: string, prioridad: string,
      estado: string,progreso: number, responsable:string, descripcion: string, anotaciones: string) {
-    this.http.post('http://localhost:3000/task/task', {
+    this.http.post('https://workflow-serve.herokuapp.com/task/task', {
         nombre: nombre,
         proyecto: proyecto,
         prioridad: prioridad,
         estado: estado,
-        progreso: progreso,
+        progreso: progreso/100,
         responsable: responsable,
         descripcion: descripcion,
         anotaciones:anotaciones
